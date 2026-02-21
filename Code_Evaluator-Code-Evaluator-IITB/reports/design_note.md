@@ -2,16 +2,16 @@
 
 ## 1. Model Selection & Reasoning
 
-**Primary Model:** Qwen2.5-Coder-32B-Instruct (via HuggingFace Inference API)
+**Primary Model:** Qwen2.5-Coder-7B-Instruct (via HuggingFace InferenceClient)
 
 **Why this model:**
 - Purpose-built for code understanding and analysis
 - Strong performance on code benchmarks (HumanEval, MBPP)
 - Available via HuggingFace Inference API (no local GPU required)
 - Supports structured JSON output with low temperature
-- 32B parameters provide sufficient reasoning capacity for rubric evaluation
+- 7B parameters provide good reasoning capacity for rubric evaluation while maintaining availability
 
-**Fallback Models:** DeepSeek-Coder-V2-Lite-Instruct, StarCoder2-15B
+**Fallback Models:** Qwen2.5-Coder-1.5B-Instruct, StarCoder2-15B
 
 The fallback chain ensures the pipeline degrades gracefully if the primary model is unavailable. If all models fail, the system falls back to deterministic-only scoring, ensuring the pipeline always produces results.
 
