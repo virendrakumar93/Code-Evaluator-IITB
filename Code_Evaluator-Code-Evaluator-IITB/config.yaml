@@ -24,9 +24,9 @@ sandbox:
 
 llm:
   enabled: true
-  model: "Qwen/Qwen2.5-Coder-32B-Instruct"
+  model: "Qwen/Qwen2.5-Coder-7B-Instruct"
   fallback_models:
-    - "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
+    - "Qwen/Qwen2.5-Coder-1.5B-Instruct"
     - "bigcode/starcoder2-15b"
   max_tokens: 2048
   temperature: 0.1
