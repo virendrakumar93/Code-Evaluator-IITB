@@ -41,7 +41,7 @@ A tool-augmented LLM pipeline for evaluating Python coding submissions with evid
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/virendrakumar93/Code_Evaluator-IITB.git
+git clone https://github.com/virendrakumar93/Code_Evaluator.git
 cd Code_Evaluator
 
 # 2. Set up environment
