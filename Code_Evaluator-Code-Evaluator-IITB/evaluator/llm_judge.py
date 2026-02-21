@@ -137,7 +137,7 @@ def _call_hf_api(prompt: str, model: str, api_token: str, max_tokens: int = 2048
                 continue
             raise
 
-     raise RuntimeError(f"Model {model} failed to respond after retries")
+        raise RuntimeError(f"Model {model} failed to respond after retries")
 
 
 def _parse_llm_response(response_text: str) -> dict | None:
@@ -228,7 +228,7 @@ def judge_submission(
         api_token = _get_api_token()
     except EnvironmentError as e:
          logger.warning(f"No API token: {e}. Using deterministic scores only.")
-        return _fallback_judgment(deterministic_scores)
+    return _fallback_judgment(deterministic_scores)
 
     prompt = build_grading_prompt(
         problem_statement,
