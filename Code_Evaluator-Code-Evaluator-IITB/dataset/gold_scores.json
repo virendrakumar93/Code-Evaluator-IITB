@@ -1,0 +1,362 @@
+[
+  {
+    "problem_id": "problem_1",
+    "submission_id": "correct_optimal",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 9.0,
+    "clarity": 8.5,
+    "overall": 9.6
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "correct_alt",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 8.5,
+    "clarity": 8.0,
+    "overall": 9.4
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "brute_force",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 5.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 8.2
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "wrong_logic",
+    "correctness": 2.0,
+    "edge_cases": 1.0,
+    "complexity": 8.0,
+    "style": 7.0,
+    "clarity": 6.0,
+    "overall": 3.9
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "edge_case_bug",
+    "correctness": 7.0,
+    "edge_cases": 4.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.7
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "partial_correct",
+    "correctness": 6.0,
+    "edge_cases": 3.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.1
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "style_poor",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 2.0,
+    "clarity": 3.0,
+    "overall": 7.8
+  },
+  {
+    "problem_id": "problem_1",
+    "submission_id": "timeout_risk",
+    "correctness": 5.0,
+    "edge_cases": 3.0,
+    "complexity": 2.0,
+    "style": 5.0,
+    "clarity": 5.0,
+    "overall": 4.1
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "correct_recursive",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 9.0,
+    "clarity": 8.5,
+    "overall": 9.5
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "correct_iterative",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 8.0,
+    "clarity": 7.5,
+    "overall": 9.2
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "wrong_logic",
+    "correctness": 3.0,
+    "edge_cases": 2.0,
+    "complexity": 6.0,
+    "style": 6.0,
+    "clarity": 6.0,
+    "overall": 4.1
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "missing_cases",
+    "correctness": 5.0,
+    "edge_cases": 3.0,
+    "complexity": 7.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 5.5
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "edge_case_bug",
+    "correctness": 7.0,
+    "edge_cases": 4.0,
+    "complexity": 8.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.6
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "style_poor",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 2.0,
+    "clarity": 3.0,
+    "overall": 7.6
+  },
+  {
+    "problem_id": "problem_2",
+    "submission_id": "inefficient",
+    "correctness": 8.0,
+    "edge_cases": 7.0,
+    "complexity": 2.0,
+    "style": 6.0,
+    "clarity": 5.0,
+    "overall": 6.1
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "correct_dp",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 9.0,
+    "clarity": 8.5,
+    "overall": 9.6
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "correct_recursive_memo",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 8.0,
+    "style": 8.0,
+    "clarity": 8.0,
+    "overall": 9.2
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "wrong_logic",
+    "correctness": 2.0,
+    "edge_cases": 1.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 6.0,
+    "overall": 4.0
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "naive_recursive",
+    "correctness": 5.0,
+    "edge_cases": 3.0,
+    "complexity": 2.0,
+    "style": 6.0,
+    "clarity": 7.0,
+    "overall": 4.3
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "edge_case_bug",
+    "correctness": 7.0,
+    "edge_cases": 4.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.7
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "style_poor",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 2.0,
+    "clarity": 3.0,
+    "overall": 7.8
+  },
+  {
+    "problem_id": "problem_3",
+    "submission_id": "partial_correct",
+    "correctness": 6.0,
+    "edge_cases": 4.0,
+    "complexity": 8.0,
+    "style": 6.0,
+    "clarity": 6.0,
+    "overall": 5.9
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "correct_stack",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 8.5,
+    "clarity": 8.0,
+    "overall": 9.5
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "correct_recursive",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 8.0,
+    "clarity": 8.5,
+    "overall": 9.4
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "wrong_precedence",
+    "correctness": 4.0,
+    "edge_cases": 2.0,
+    "complexity": 7.0,
+    "style": 7.0,
+    "clarity": 6.0,
+    "overall": 4.7
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "no_parens",
+    "correctness": 5.0,
+    "edge_cases": 2.0,
+    "complexity": 8.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 5.3
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "edge_case_bug",
+    "correctness": 7.0,
+    "edge_cases": 4.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.7
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "style_poor",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 2.0,
+    "clarity": 3.0,
+    "overall": 7.6
+  },
+  {
+    "problem_id": "problem_4",
+    "submission_id": "partial_correct",
+    "correctness": 5.0,
+    "edge_cases": 3.0,
+    "complexity": 7.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 5.4
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "correct_bfs",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 10.0,
+    "style": 9.0,
+    "clarity": 8.5,
+    "overall": 9.6
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "correct_alt",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 8.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 8.8
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "wrong_logic",
+    "correctness": 4.0,
+    "edge_cases": 2.0,
+    "complexity": 7.0,
+    "style": 7.0,
+    "clarity": 6.0,
+    "overall": 4.7
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "no_visited",
+    "correctness": 3.0,
+    "edge_cases": 1.0,
+    "complexity": 5.0,
+    "style": 6.0,
+    "clarity": 6.0,
+    "overall": 3.6
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "edge_case_bug",
+    "correctness": 7.0,
+    "edge_cases": 4.0,
+    "complexity": 9.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 6.7
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "style_poor",
+    "correctness": 10.0,
+    "edge_cases": 10.0,
+    "complexity": 9.0,
+    "style": 2.0,
+    "clarity": 3.0,
+    "overall": 7.6
+  },
+  {
+    "problem_id": "problem_5",
+    "submission_id": "partial_correct",
+    "correctness": 6.0,
+    "edge_cases": 3.0,
+    "complexity": 8.0,
+    "style": 7.0,
+    "clarity": 7.0,
+    "overall": 5.9
+  }
+]

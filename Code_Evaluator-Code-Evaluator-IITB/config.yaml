@@ -1,0 +1,57 @@
+# Code Evaluator Pipeline Configuration
+
+paths:
+  problems: "problems"
+  reports: "reports"
+  gold_scores: "dataset/gold_scores.json"
+
+sandbox:
+  timeout: 3.0
+  max_memory_mb: 256
+  allowed_imports:
+    - math
+    - collections
+    - itertools
+    - functools
+    - heapq
+    - bisect
+    - string
+    - re
+    - typing
+    - dataclasses
+    - copy
+    - operator
+
+llm:
+  enabled: true
+  model: "Qwen/Qwen2.5-Coder-32B-Instruct"
+  fallback_models:
+    - "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct"
+    - "bigcode/starcoder2-15b"
+  max_tokens: 2048
+  temperature: 0.1
+  retry_attempts: 2
+
+scoring:
+  llm_weight: 0.4  # 60% deterministic + 40% LLM
+  weights:
+    correctness: 0.35
+    edge_cases: 0.20
+    complexity: 0.15
+    style: 0.15
+    clarity: 0.15
+
+static_analysis:
+  ruff:
+    enabled: true
+    select:
+      - E  # pycodestyle errors
+      - W  # pycodestyle warnings
+      - F  # pyflakes
+      - C  # conventions
+      - N  # naming
+      - B  # bugbear
+
+consistency:
+  sample_size: 5
+  tolerance: 0.5
