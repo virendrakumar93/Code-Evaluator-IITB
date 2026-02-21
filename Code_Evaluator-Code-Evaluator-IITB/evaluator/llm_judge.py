@@ -1,4 +1,4 @@
-"""LLM-based judge using HuggingFace Inference API."""
+"""LLM-based judge using HuggingFace Inference API (via huggingface_hub)."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ import os
 import re
 import time
 from dataclasses import asdict
-
+from huggingface_hub import InferenceClient
 from evaluator.schema import (
     ExecutionArtifact,
     LLMJudgment,
@@ -20,9 +20,9 @@ from evaluator.sandbox import strip_comments
 
 logger = logging.getLogger(__name__)
 
-DEFAULT_MODEL = "Qwen/Qwen2.5-Coder-32B-Instruct"
+DEFAULT_MODEL = "Qwen/Qwen2.5-Coder-7B-Instruct"
 FALLBACK_MODELS = [
-    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
     "bigcode/starcoder2-15b",
 ]
 
@@ -103,55 +103,41 @@ Respond ONLY with valid JSON in this exact format:
 """
 
 
-def _get_api_key() -> str:
-    """Get HuggingFace API key from environment."""
-    key = os.environ.get("HF_API_KEY") or os.environ.get("HUGGINGFACE_API_KEY") or os.environ.get("HF_TOKEN")
-    if not key:
+def _get_api_token() -> str:
+    """Get HuggingFace API token from environment."""
+    token = os.environ.get("HF_TOKEN") or os.environ.get("HF_API_KEY") or os.environ.get("HUGGINGFACE_API_KEY")
+    if not token:
         raise EnvironmentError(
-            "HuggingFace API key not found. Set HF_API_KEY, HUGGINGFACE_API_KEY, or HF_TOKEN in .env"
+            "HuggingFace API token not found. Set HF_TOKEN in .env"
         )
-    return key
+    return token
 
+def _create_client(model: str, token: str) -> InferenceClient:
+    """Create a HuggingFace InferenceClient."""
+    return InferenceClient(model=model, token=token, timeout=120)
 
-def _call_hf_api(prompt: str, model: str, api_key: str, max_tokens: int = 2048) -> str:
-    """Call HuggingFace Inference API."""
-    import requests
+def _call_hf_api(prompt: str, model: str, api_token: str, max_tokens: int = 2048) -> str:
+    """Call HuggingFace Inference API via official InferenceClient."""
+    client = _create_client(model, api_token)
+    for attempt in range(2):
+        try:
+            result = client.text_generation(
+                prompt,
+                max_new_tokens=max_tokens,
+                temperature=0.1,
+                do_sample=False,
+                return_full_text=False,
+            )
+            return result
+        except Exception as e:
+            error_msg = str(e)
+            if "503" in error_msg or "loading" in error_msg.lower():
+                logger.info("Model loading, waiting 30s...")
+                time.sleep(30)
+                continue
+            raise
 
-    url = f"https://router.huggingface.co/hf-inference/models/"/{model}"
-
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-
-    payload = {
-        "inputs": prompt,
-        "parameters": {
-            "max_new_tokens": max_tokens,
-            "temperature": 0.1,
-            "return_full_text": False,
-            "do_sample": False,
-        },
-    }
-
-    response = requests.post(url, json=payload, headers=headers, timeout=120)
-
-    if response.status_code == 503:
-        # Model loading, wait and retry
-        logger.info("Model loading, waiting 30s...")
-        time.sleep(30)
-        response = requests.post(url, json=payload, headers=headers, timeout=120)
-
-    response.raise_for_status()
-
-    result = response.json()
-
-    if isinstance(result, list) and len(result) > 0:
-        return result[0].get("generated_text", "")
-    elif isinstance(result, dict):
-        return result.get("generated_text", "")
-
-    return str(result)
+     raise RuntimeError(f"Model {model} failed to respond after retries")
 
 
 def _parse_llm_response(response_text: str) -> dict | None:
@@ -239,9 +225,9 @@ def judge_submission(
     model = model or DEFAULT_MODEL
 
     try:
-        api_key = _get_api_key()
+        api_token = _get_api_token()
     except EnvironmentError as e:
-        logger.warning(f"No API key: {e}. Using deterministic scores only.")
+         logger.warning(f"No API token: {e}. Using deterministic scores only.")
         return _fallback_judgment(deterministic_scores)
 
     prompt = build_grading_prompt(
@@ -255,7 +241,7 @@ def judge_submission(
     # Try primary model with one retry
     for attempt in range(2):
         try:
-            response_text = _call_hf_api(prompt, model, api_key)
+            response_text = _call_hf_api(prompt, model, api_token)
             parsed = _parse_llm_response(response_text)
 
             if parsed is not None:
@@ -272,7 +258,7 @@ def judge_submission(
     # Try fallback models
     for fb_model in FALLBACK_MODELS:
         try:
-            response_text = _call_hf_api(prompt, fb_model, api_key)
+            response_text = _call_hf_api(prompt, fb_model, api_token)
             parsed = _parse_llm_response(response_text)
             if parsed is not None:
                 return _build_judgment(parsed, response_text, deterministic_scores)
