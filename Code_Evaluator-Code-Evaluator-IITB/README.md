@@ -211,6 +211,8 @@ make clean            # Remove generated reports
 }
 ```
 
+#Project Structure
+```
 Code_Evaluator-Code-Evaluator-IITB/
 ├── cli.py                  # Main entry point — run this
 ├── config.yaml             # Pipeline configuration (models, weights, timeouts)
@@ -243,6 +245,7 @@ Code_Evaluator-Code-Evaluator-IITB/
     ├── evaluation_report.md    # Full evaluation report
     ├── results.json            # Machine-readable results
     └── design_note.md          # System design rationale
+```
 
 ## Rubric Dimensions
 
