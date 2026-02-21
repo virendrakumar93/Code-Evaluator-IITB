@@ -117,7 +117,7 @@ def _call_hf_api(prompt: str, model: str, api_key: str, max_tokens: int = 2048) 
     """Call HuggingFace Inference API."""
     import requests
 
-    url = f"https://api-inference.huggingface.co/models/{model}"
+    url = f"https://router.huggingface.co/hf-inference/models/"/{model}"
 
     headers = {
         "Authorization": f"Bearer {api_key}",
