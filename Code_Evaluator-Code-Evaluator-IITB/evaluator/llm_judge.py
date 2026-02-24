@@ -227,8 +227,8 @@ def judge_submission(
     try:
         api_token = _get_api_token()
     except EnvironmentError as e:
-         logger.warning(f"No API token: {e}. Using deterministic scores only.")
-    return _fallback_judgment(deterministic_scores)
+        logger.warning(f"No API token: {e}. Using deterministic scores only.")
+        return _fallback_judgment(deterministic_scores)
 
     prompt = build_grading_prompt(
         problem_statement,
